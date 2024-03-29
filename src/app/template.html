@@ -1,3 +1,35 @@
+<div class="bg-info p-2 text-white">
+    Product Names:
+    <ng-container *ngFor="let item of getProducts(); let last=last">
+        {{ item.name}} <ng-container *ngIf="!last">,</ng-container>
+    </ng-container>
+    
+</div>
+
+
+<div class="bg-info p-2">
+    The rounded price is {{getProductPrice(2)}}
+</div>
+
+<!-- <div class="bg-info p-2">
+    Counter: {{ counter = counter + 1}}
+</div> -->
+
+
+<!-- main.ts:11 ERROR Error: NG0100: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked. Previous value: 'Lifejacket'. Current value: 'Corner Flags'.. Find more at https://angular.io/errors/NG0100
+<div class="bg-info p-2 text-white">
+    Next Product is {{ nextProduct?.name}}
+</div>
+ -->
+
+
+
+<!-- src/app/template.html:19:28 - error TS2339: Property 'Math' does not exist on type 'ProductComponent'.
+<div class='bg-info p-2'>
+    The rounded price is {{Math.floor(getProduct(1)?.price)}}
+</div> -->
+
+
 <div class="text-white">
     <div class="bg-info p-2">
         There are {{ getProductCount()}} products.
@@ -108,5 +140,6 @@
     </div>
     <ng-template [ngTemplateOutlet]="titleTemplate" [ngTemplateOutletContext]="{title: 'Footer'}">
     </ng-template>
+    
 
 </div>

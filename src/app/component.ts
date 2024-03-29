@@ -9,7 +9,9 @@ import { Product } from "./product.model";
 })
 export class ProductComponent {
     model: Model = new Model();
-    
+    targetName: string = "Kayak";
+    counter: number = 1;
+
     constructor(ref: ApplicationRef){
         (<any>window).appRef = ref;
         (<any>window).model = this.model;
@@ -29,7 +31,16 @@ export class ProductComponent {
     }
 
 
+    get nextProduct(): Product | undefined {
+        return this.model.getProducts().shift();
+    }
+
+    getProductPrice(index: number): number {
+        return Math.floor(this.getProduct(index)?.price ?? 0);
+    }    
+
     getProducts(): Product[] {
+        console.log('getProducts invoked');
         return this.model.getProducts();
     }
 
@@ -37,7 +48,6 @@ export class ProductComponent {
         return this.model.getProducts().length;
     }
 
-    targetName: string = "Kayak";
 
     getKey(index: number, product: Product) {
         return product.id
