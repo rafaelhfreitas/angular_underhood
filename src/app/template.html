@@ -1,3 +1,64 @@
-<div class="bg-info text-white p-2">
-    There are {{ model.getProducts().length }} products in the model
+<div class="text-white">
+    <div class="p-2" [ngClass]="getClassMap(1)">
+        This first product is {{ model.getProduct(1)?.name }}.
+    </div>
+    <div class="p-2" [ngClass]="getClassMap(2)">
+        This second product is {{ model.getProduct(2)?.name }}.
+    </div>
+    <div class="p-2" [ngClass]="{'bg-success': (model.getProduct(3)?.price ?? 0) < 50,'bg-info': (model.getProduct(3)?.price ?? 0) >= 50}">
+        This third product is {{ model.getProduct(3)?.name }}.
+    </div>
+
 </div>
+
+
+<!-- <div class="text-white">
+    <div [class]="getClasses(1)">
+        This first product is {{ model.getProduct(1)?.name }}.
+    </div>
+    <div class="p-2"
+        [class.bg-success]="(model.getProduct(2)?.price ?? 0) < 50"
+        [class.bg-info]="(model.getProduct(2)?.price ?? 0) >= 50" >
+            This second product is {{ model.getProduct(2)?.name }}.
+    </div>
+</div> -->
+
+
+<!-- <div class="text-white">
+    <div [class]="getClasses(1)">
+        This first product is {{ model.getProduct(1)?.name }}.
+    </div>
+    <div [class]="getClasses(2)" [textContent]="'This second product is ' + (model.getProduct(2)?.name) + '.'">
+        
+    </div>
+</div> -->
+
+
+<!-- <div [ngClass]="'text-white p-2 ' + getClasses()" >
+    Name: {{ model.getProduct(1)?.name ?? 'None' }} 
+</div>
+
+<div [ngClass]="'text-white p-2 ' + getClasses()" 
+    [textContent]="'Name: ' + (model.getProduct(1)?.name ?? 'None')"> 
+</div>
+
+<div class="form-group m-2">
+    <label>Name:</label>
+    <input class="form-control" [value]="model.getProduct(1)?.name ?? 'None'" />
+</div>
+
+
+<table class="table mt-2">
+    <tr>
+        <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+    </tr>
+    <tr>
+        <td [attr.colspan]="model.getProducts().length">
+            {{ model.getProduct(1)?.name ?? 'None' }}
+        </td>
+    </tr>
+</table> -->
+
+<!-- <div class="bg-info text-white p-2">
+    There are {{ model.getProducts().length }} products in the model
+</div> -->
