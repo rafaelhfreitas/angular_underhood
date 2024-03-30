@@ -20,17 +20,14 @@ export class ProductComponent {
         return this.model.getProducts();
     }
 
-    selectedProduct: string | undefined;
+    newProduct: Product = new Product();
 
-    getSelected(product: Product): boolean {
-        return product.name == this.selectedProduct;
+    get jsonProduct() {
+        return JSON.stringify(this.newProduct)
     }
 
-
-    handleInputEvent(event: Event) {
-        if (event.target instanceof HTMLInputElement){
-            this.selectedProduct = event.target.value;
-        }
+    addProduct(p: Product) {
+        console.log("New product: " + this.jsonProduct)
     }
 
 
