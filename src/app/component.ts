@@ -27,4 +27,11 @@ export class ProductComponent {
     }
 
 
+    handleInputEvent(event: Event) {
+        if (event.target instanceof HTMLInputElement){
+            this.selectedProduct = event.target.value;
+        }
+    }
+
+
 }
