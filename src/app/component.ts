@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { Model } from "./repository.model";
 import { Product } from "./product.model";
-import { NgModel, ValidationErrors} from "@angular/forms";
-import { state } from "@angular/animations";
+import { NgModel, ValidationErrors, NgForm } from "@angular/forms";
+import { NgForOf } from "@angular/common";
 
 
 @Component({
@@ -12,10 +12,22 @@ import { state } from "@angular/animations";
 export class ProductComponent {
 
     model: Model = new Model();
+    formSubmitted: boolean = false;
 
 
-    getProduct(key: number) : Product | undefined {
-        return this.model.getProduct(key);   
+    submitForm(form: NgForm) {
+        this.formSubmitted = true;
+        if (form.valid) {
+            this.addProduct(this.newProduct);
+            this.newProduct = new Product();
+            form.resetForm();
+            this.formSubmitted = false;
+        }
+    }
+
+
+    getProduct(key: number): Product | undefined {
+        return this.model.getProduct(key);
     }
 
     getProducts(): Product[] {
@@ -33,10 +45,10 @@ export class ProductComponent {
     }
 
 
-    getMessages(errs: ValidationErrors | null , name: string) : string[] {
+    getMessages(errs: ValidationErrors | null, name: string): string[] {
         let messages: string[] = [];
         for (let errorName in errs) {
-            switch(errorName) {
+            switch (errorName) {
                 case "required":
                     messages.push(`You must enter a ${name}`)
                     break;
@@ -45,7 +57,8 @@ export class ProductComponent {
                     break;
                 case "pattern":
                     messages.push(`The ${name} contains illegal characters`);
-                    break;            }
+                    break;
+            }
         }
         return messages;
     }
@@ -55,6 +68,16 @@ export class ProductComponent {
         let thing: string = state.path?.[0] ?? thingName;
         return this.getMessages(state.errors, thing);
 
+    }
+
+
+    getFormValidationMessages(form: NgForm): string[] {
+        let messages: string[] = [];
+        Object.keys(form.controls).forEach(k => {
+            this.getMessages(form.controls[k].errors, k)
+                .forEach(m => messages.push(m));
+        });
+        return messages;
     }
 
 
