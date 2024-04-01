@@ -111,6 +111,7 @@ export class ProductComponent {
     newProduct: Product = new Product();
     
     addProduct(p: Product) {
+        console.log(p);
         this.model.saveProduct(p);
     }
 
