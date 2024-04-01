@@ -20,10 +20,10 @@
 
         <div class="form-group bg-info text-white p-2">
             <label>Name:</label>
-            <input class="bg-primary text-white form-control" [paModel]="newProduct.name"
-                (paModelChange)="newProduct.name = $event" />
+            <input class="bg-primary text-white form-control" [(paModel)]="newProduct.name" #paModel="paModel" />
+            <div class="bg-info text-white p-1">Direction: {{paModel.direction}}</div>
         </div>
-        
+
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -34,8 +34,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of getProducts(); let i = index" [pa-attr]="getProducts().length < 6 ? 'table-success' : 'table-warning'" 
-                    [pa-product]="item" (pa-category)="newProduct.category = $event">
+                <tr *ngFor="let item of getProducts(); let i = index"
+                    [pa-attr]="getProducts().length < 6 ? 'table-success' : 'table-warning'" [pa-product]="item"
+                    (pa-category)="newProduct.category = $event">
                     <td>{{i + 1}}</td>
                     <td>{{item.name}}</td>
                     <td [pa-attr]="item.category == 'Soccer' ? 'table-info' : null">
