@@ -97,6 +97,8 @@ import { Product } from "./product.model";
 })
 export class ProductComponent {
     model: Model = new Model();
+    showTable: boolean = false;
+    darkColor: boolean = false;
     
     getProduct(key: number): Product | undefined {
         return this.model.getProduct(key);
@@ -110,10 +112,16 @@ export class ProductComponent {
     newProduct: Product = new Product();
     
     addProduct(p: Product) {
+        console.log(p);
         this.model.saveProduct(p);
     }
 
     submitForm() {
         this.addProduct(this.newProduct);
+    }
+
+
+    deleteProduct(key: number) {
+        this.model.deleteProduct(key);
     }
 }
