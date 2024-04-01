@@ -118,4 +118,9 @@ export class ProductComponent {
     submitForm() {
         this.addProduct(this.newProduct);
     }
+
+
+    deleteProduct(key: number) {
+        this.model.deleteProduct(key);
+    }
 }
