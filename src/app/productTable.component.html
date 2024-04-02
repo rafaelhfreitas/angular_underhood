@@ -1,4 +1,6 @@
-<div class="bg-info p-2 text-white">
+
+
+<!-- <div class="bg-info p-2 text-white">
     <div>Date formatted from object: {{ dateObject | date:"shortDate" }}</div>
     <div>Date formatted from string: {{ dateString | date:"mediumDate" }}</div>
     <div>Date formatted from number: {{ dateNumber | date:"longDate" }}</div>
@@ -13,7 +15,7 @@
     <div>
         Date formatted from number: {{ dateNumber | date:"longDate":"UTC":"fr-FR" }}
     </div>
-</div>
+</div> -->
 
 <!-- <div class="bg-info p-2 text-white">
     <div>Date formatted from object: {{ dateObject | date }}</div>
@@ -67,8 +69,9 @@
                     let i = index; let odd = odd;
                     let even = even" [class.table-info]="odd" [class.table-warning]="even" class="align-middle">
             <td>{{i + 1}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.category}}</td>
+            <!-- <td>{{item.name | uppercase }}</td> -->
+            <td>{{item.name | titlecase }}</td>
+            <td>{{item.category | lowercase }}</td>
             <td>{{item.price | addTax:(taxRate ?? 0 )| currency:"USD":"symbol":"2.2-2" }}</td>
             <td class="text-center">
                 <button class="btn btn-danger btn-sm" (click)="deleteProduct(item.id)">
