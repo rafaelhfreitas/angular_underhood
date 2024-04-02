@@ -1,26 +1,28 @@
 <table class="table table-sm table-bordered table-striped">
     <thead>
         <tr>
+            <th></th>
             <th>Name</th>
             <th>Category</th>
-            <th>Message</th>
+            <th>Price</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr *paFor="let item of getProducts()">
-            <td>{{ item.name }}</td>
-            <td>{{ item.category }}</td>
-            <td>Helps you {{ item.category | i18nSelect:selectMap }} </td>
+        <tr *paFor="let item of getProducts(); let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.price | currency:"USD":"symbol" }}</td>
+            <td class="text-center">
+                <button class="btn btn-danger btn-sm" (click)="deleteProduct(item.id)">
+                    Delete
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>
 
 
-<div class="bg-info text-white p-2">
-    <div> Counter: {{ numbers | async }} </div>
-</div>
-
-
-<div class="bg-info text-white p-2">
-    <div> Counter: {{ numbers | async | currency:"USD":"symbol":"2.2-2" }} </div>
-</div>
+<paDiscountEditor [discounter]="discounter"></paDiscountEditor>
+<paDiscountDisplay [discounter]="discounter"></paDiscountDisplay>
