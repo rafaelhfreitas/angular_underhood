@@ -35,11 +35,21 @@ export class ProductTableComponent {
     // dateString: string = "2020-02-20T00:00:00.000Z";
     // dateNumber: number = 1582156800000;
 
+    // selectMap = {
+    //     "Watersports": "stay dry",
+    //     "Soccer": "score goals",
+    //     "other": "have fun"
+    // }
+
     selectMap = {
         "Watersports": "stay dry",
         "Soccer": "score goals",
         "other": "have fun"
     }
-
+    numberMap = {
+        "=1": "one product",
+        "=2": "two products",
+        "other": "# products"
+    }
 
 }
