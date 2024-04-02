@@ -31,24 +31,10 @@ export class ProductTableComponent {
     categoryFilter: string | undefined;
     itemCount: number = 3;
 
-    // @ViewChildren(PaCellColor)
-    // viewChildren: QueryList<PaCellColor> | undefined;
 
+    dateObject: Date = new Date(2020, 1, 20);
+    dateString: string = "2020-02-20T00:00:00.000Z";
+    dateNumber: number = 1582156800000;
 
-    // ngAfterViewInit() {
-    //     this.viewChildren?.changes.subscribe(() => {
-    //         this.updateViewChildren();
-    //     });
-    //     this.updateViewChildren();
-    // }
-
-    
-    // private updateViewChildren() {
-    //     setTimeout(() => {
-    //         this.viewChildren?.forEach((child, index) => {
-    //             child.setColor(index % 2 ? true : false);
-    //         })
-    //     }, 0);
-    // }
 
 }
