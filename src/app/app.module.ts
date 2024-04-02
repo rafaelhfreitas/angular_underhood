@@ -15,6 +15,7 @@ import { ProductFormComponent } from './productForm.component';
 import { ProductTableComponent } from './productTable.component';3
 import { PaToggleView } from './toggleView.component';
 import { PaAddTaxPipe } from './addTax.pipe';
+import { PaCategoryFilterPipe } from './categoryFilter.pipe';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { PaAddTaxPipe } from './addTax.pipe';
     ProductFormComponent,
     ProductTableComponent,
     PaToggleView,
-    PaAddTaxPipe
+    PaAddTaxPipe,
+    PaCategoryFilterPipe
   ],
   imports: [
     BrowserModule,

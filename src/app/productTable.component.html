@@ -8,6 +8,16 @@
     </select>
 </div>
 
+
+<div class="my-2">
+    <label>Category Filter:</label>
+    <select class="form-select" [(ngModel)]="categoryFilter">
+        <option>Watersports</option>
+        <option>Soccer</option>
+        <option>Chess</option>
+    </select>
+</div>
+
 <table class="table table-sm table-bordered table-striped">
     <thead class="table-light">
         <tr>
@@ -19,8 +29,9 @@
         </tr>
     </thead>
     <tbody>
-        <tr *paFor="let item of getProducts(); let i = index; let odd = odd;
-            let even = even" [class.table-info]="odd" [class.table-warning]="even" class="align-middle">
+        <tr *paFor="let item of getProducts() | filter:categoryFilter;
+                    let i = index; let odd = odd;
+                    let even = even" [class.table-info]="odd" [class.table-warning]="even" class="align-middle">
             <td>{{i + 1}}</td>
             <td>{{item.name}}</td>
             <td>{{item.category}}</td>
