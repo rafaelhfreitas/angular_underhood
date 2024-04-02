@@ -1,7 +1,7 @@
 import { Component, Input, QueryList, ViewChildren } from "@angular/core";
 import { Product } from "./product.model";
 import { Model } from "./repository.model";
-import { PaCellColor } from "./cellColor.directive";
+import { Subject } from "rxjs";
 
 
 @Component({
@@ -26,24 +26,29 @@ export class ProductTableComponent {
     }
     showTable: boolean = true;
 
-    @ViewChildren(PaCellColor)
-    viewChildren: QueryList<PaCellColor> | undefined;
 
+    taxRate: number = 0;
+    categoryFilter: string | undefined;
+    itemCount: number = 3;
 
-    ngAfterViewInit() {
-        this.viewChildren?.changes.subscribe(() => {
-            this.updateViewChildren();
-        });
-        this.updateViewChildren();
+    selectMap = {
+        "Watersports": "stay dry",
+        "Soccer": "score goals",
+        "other": "have fun"
+    }
+    numberMap = {
+        "=1": "one product",
+        "=2": "two products",
+        "other": "# products"
     }
 
+    numbers: Subject<number> = new Subject<number>();
     
-    private updateViewChildren() {
-        setTimeout(() => {
-            this.viewChildren?.forEach((child, index) => {
-                child.setColor(index % 2 ? true : false);
-            })
-        }, 0);
+    ngOnInit() {
+        let counter = 100;
+        setInterval(() => {
+            this.numbers.next(counter += 10)
+        }, 1000);
     }
 
 }

@@ -6,8 +6,8 @@ import { Product } from "./product.model";
     selector: "pa-productform",
     templateUrl: "productForm.component.html",
     //styles: ["div { background-color: lightgreen }"]
-    styleUrls: ["productForm.component.css"],
-    encapsulation: ViewEncapsulation.ShadowDom
+    // styleUrls: ["productForm.component.css"],
+    // encapsulation: ViewEncapsulation.ShadowDom
 })
 export class ProductFormComponent {
 
