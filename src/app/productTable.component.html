@@ -17,8 +17,10 @@
 
 
 <div class="bg-info text-white p-2">
-    <div>There are {{ 1 | i18nPlural:numberMap }} </div>
-    <div>There are {{ 2 | i18nPlural:numberMap }} </div>
-    <div>There are {{ 100 | i18nPlural:numberMap }} </div>
+    <div> Counter: {{ numbers | async }} </div>
 </div>
 
+
+<div class="bg-info text-white p-2">
+    <div> Counter: {{ numbers | async | currency:"USD":"symbol":"2.2-2" }} </div>
+</div>

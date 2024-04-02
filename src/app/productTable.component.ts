@@ -1,7 +1,7 @@
 import { Component, Input, QueryList, ViewChildren } from "@angular/core";
 import { Product } from "./product.model";
 import { Model } from "./repository.model";
-// import { PaCellColor } from "./cellColor.directive";
+import { Subject } from "rxjs";
 
 
 @Component({
@@ -31,16 +31,6 @@ export class ProductTableComponent {
     categoryFilter: string | undefined;
     itemCount: number = 3;
 
-    // dateObject: Date = new Date(2020, 1, 20);
-    // dateString: string = "2020-02-20T00:00:00.000Z";
-    // dateNumber: number = 1582156800000;
-
-    // selectMap = {
-    //     "Watersports": "stay dry",
-    //     "Soccer": "score goals",
-    //     "other": "have fun"
-    // }
-
     selectMap = {
         "Watersports": "stay dry",
         "Soccer": "score goals",
@@ -50,6 +40,15 @@ export class ProductTableComponent {
         "=1": "one product",
         "=2": "two products",
         "other": "# products"
+    }
+
+    numbers: Subject<number> = new Subject<number>();
+    
+    ngOnInit() {
+        let counter = 100;
+        setInterval(() => {
+            this.numbers.next(counter += 10)
+        }, 1000);
     }
 
 }
