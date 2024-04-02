@@ -1,7 +1,7 @@
 import { Component, Input, QueryList, ViewChildren } from "@angular/core";
 import { Product } from "./product.model";
 import { Model } from "./repository.model";
-import { PaCellColor } from "./cellColor.directive";
+// import { PaCellColor } from "./cellColor.directive";
 
 
 @Component({
@@ -26,24 +26,29 @@ export class ProductTableComponent {
     }
     showTable: boolean = true;
 
-    @ViewChildren(PaCellColor)
-    viewChildren: QueryList<PaCellColor> | undefined;
+
+    taxRate: number = 0;
+    categoryFilter: string | undefined;
+    itemCount: number = 3;
+
+    // @ViewChildren(PaCellColor)
+    // viewChildren: QueryList<PaCellColor> | undefined;
 
 
-    ngAfterViewInit() {
-        this.viewChildren?.changes.subscribe(() => {
-            this.updateViewChildren();
-        });
-        this.updateViewChildren();
-    }
+    // ngAfterViewInit() {
+    //     this.viewChildren?.changes.subscribe(() => {
+    //         this.updateViewChildren();
+    //     });
+    //     this.updateViewChildren();
+    // }
 
     
-    private updateViewChildren() {
-        setTimeout(() => {
-            this.viewChildren?.forEach((child, index) => {
-                child.setColor(index % 2 ? true : false);
-            })
-        }, 0);
-    }
+    // private updateViewChildren() {
+    //     setTimeout(() => {
+    //         this.viewChildren?.forEach((child, index) => {
+    //             child.setColor(index % 2 ? true : false);
+    //         })
+    //     }, 0);
+    // }
 
 }
