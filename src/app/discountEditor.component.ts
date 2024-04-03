@@ -6,15 +6,16 @@ import { DiscountService } from "./discount.service";
     selector: "paDiscountEditor",
     template: `<div class="form-group">
                     <label>Discount</label>
-                    <ng-template [ngIf]="discounter?.discount ?? false">
-                        <input [(ngModel)]="discounter!.discount"
-                             class="form-control" type="number" />
-                    </ng-template>
+                    <input [(ngModel)]="discounter.discount"
+                            class="form-control" type="number" />
                 </div>`
 })
 
 
 export class PaDiscountEditorComponent {
-    @Input("discounter")
-    discounter?: DiscountService;
+
+    constructor(public discounter: DiscountService) {}
+
+    // @Input("discounter")
+    // discounter?: DiscountService;
 }
