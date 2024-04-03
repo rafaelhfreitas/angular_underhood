@@ -66,8 +66,9 @@ registerLocaleData(localeFr);
   // providers: [{provide: LOCALE_ID, useValue: "fr-FR"}],
   providers: [DiscountService, SimpleDataSource, Model,
       { provide: LOG_LEVEL, useValue: LogLevel.DEBUG },
+      { provide: "debugLevel", useExisting: LOG_LEVEL },
       { provide: LogService, 
-        deps: [LOG_LEVEL],
+        deps: ["debugLevel"],
         useFactory: (level: LogLevel) => {
           let logger = new LogService();
           logger.minimumLevel = level;
