@@ -13,8 +13,10 @@ export class ProductTableComponent {
 
     // discounter: DiscountService = new DiscountService();
 
-    @Input("model")
-    dataModel: Model | undefined;
+    constructor(private dataModel: Model) {}
+
+    // @Input("model")
+    // dataModel: Model | undefined;
 
     getProduct(key: number): Product | undefined {
         return this.dataModel?.getProduct(key);
