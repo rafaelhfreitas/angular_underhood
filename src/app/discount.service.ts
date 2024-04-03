@@ -1,10 +1,10 @@
 import { Inject, Injectable } from "@angular/core";
-import { LogService } from "./log.service";
+import { LogService, LOG_SERVICE } from "./log.service";
 
 @Injectable()
 export class DiscountService {
 
-    constructor(@Inject("logger") private logger: LogService){}
+    constructor(@Inject(LOG_SERVICE) private logger: LogService){}
 
     private discountValue: number = 10;
     
