@@ -60,7 +60,8 @@ registerLocaleData(localeFr);
     FormsModule
   ],
   // providers: [{provide: LOCALE_ID, useValue: "fr-FR"}],
-  providers: [DiscountService, SimpleDataSource, Model, {provide: LogService, useClass: LogService}],
+  providers: [DiscountService, SimpleDataSource, Model, 
+      {provide: "logger", useClass: LogService}],
   bootstrap: [ProductComponent]
 })
 export class AppModule { }
