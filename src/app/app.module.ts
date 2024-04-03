@@ -30,7 +30,7 @@ import { PaDiscountPipe } from './discount.pipe';
 import { PaDiscountAmountDirective } from './discountAmount.directive';
 import { SimpleDataSource } from './datasource.model';
 import { Model } from './repository.model';
-import { LogService, LOG_SERVICE } from './log.service';
+import { LogService, LOG_SERVICE, SpecialLogService } from './log.service';
 
 registerLocaleData(localeFr);
 
@@ -60,8 +60,9 @@ registerLocaleData(localeFr);
     FormsModule
   ],
   // providers: [{provide: LOCALE_ID, useValue: "fr-FR"}],
-  providers: [DiscountService, SimpleDataSource, Model, 
-      {provide: LOG_SERVICE, useClass: LogService}],
+  providers: [DiscountService, SimpleDataSource, Model,
+      { provide: LOG_SERVICE, useClass: LogService, multi: true},
+      { provide: LOG_SERVICE, useClass: SpecialLogService, multi: true}],
   bootstrap: [ProductComponent]
 })
 export class AppModule { }
