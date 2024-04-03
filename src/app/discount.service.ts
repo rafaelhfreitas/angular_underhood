@@ -5,12 +5,13 @@ import { LogService, LOG_SERVICE, LogLevel } from "./log.service";
 export class DiscountService {
 
     private discountValue: number = 10;
-    private logger?: LogService;
+    // private logger?: LogService;
 
-    constructor(@Inject(LOG_SERVICE) private loggers: LogService[]){
-        this.logger = loggers.find(l => l.minimumLevel == LogLevel.DEBUG);
-    }
+    // constructor(@Inject(LOG_SERVICE) private loggers: LogService[]){
+    //     this.logger = loggers.find(l => l.minimumLevel == LogLevel.DEBUG);
+    // }
 
+    constructor(private logger: LogService) {}
     
     public get discount(): number {
         return this.discountValue;
