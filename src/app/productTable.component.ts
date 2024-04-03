@@ -34,24 +34,5 @@ export class ProductTableComponent {
     categoryFilter: string | undefined;
     itemCount: number = 3;
 
-    // selectMap = {
-    //     "Watersports": "stay dry",
-    //     "Soccer": "score goals",
-    //     "other": "have fun"
-    // }
-    // numberMap = {
-    //     "=1": "one product",
-    //     "=2": "two products",
-    //     "other": "# products"
-    // }
-
-    // numbers: Subject<number> = new Subject<number>();
-    
-    // ngOnInit() {
-    //     let counter = 100;
-    //     setInterval(() => {
-    //         this.numbers.next(counter += 10)
-    //     }, 1000);
-    // }
 
 }
