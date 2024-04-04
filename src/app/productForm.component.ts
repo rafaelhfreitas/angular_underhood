@@ -1,11 +1,13 @@
 import { Component, Output, EventEmitter, ViewEncapsulation } from "@angular/core";
 import { Product } from "./product.model";
 import { Model } from "./repository.model";
+import { VALUE_SERVICE } from "./valueDisplay.directive";
 
 
 @Component({
     selector: "pa-productform",
-    templateUrl: "productForm.component.html"
+    templateUrl: "productForm.component.html",
+    providers: [{ provide: VALUE_SERVICE, useValue: "Oranges"}]
 })
 export class ProductFormComponent {
 

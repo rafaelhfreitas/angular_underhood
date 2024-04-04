@@ -31,6 +31,7 @@ import { PaDiscountAmountDirective } from './discountAmount.directive';
 import { SimpleDataSource } from './datasource.model';
 import { Model } from './repository.model';
 import { LogService, LOG_SERVICE, SpecialLogService, LogLevel , LOG_LEVEL} from './log.service';
+import { VALUE_SERVICE ,PaDisplayValueDirective } from './valueDisplay.directive';
 
 
 let logger = new LogService();
@@ -56,7 +57,8 @@ registerLocaleData(localeFr);
     PaDiscountDisplayComponent,
     PaDiscountEditorComponent,
     PaDiscountPipe,
-    PaDiscountAmountDirective
+    PaDiscountAmountDirective,
+    PaDisplayValueDirective
   ],
   imports: [
     BrowserModule,
@@ -64,17 +66,9 @@ registerLocaleData(localeFr);
     FormsModule
   ],
   // providers: [{provide: LOCALE_ID, useValue: "fr-FR"}],
-  providers: [DiscountService, SimpleDataSource, Model,
-      { provide: LOG_LEVEL, useValue: LogLevel.DEBUG },
-      { provide: "debugLevel", useExisting: LOG_LEVEL },
-      { provide: LogService, 
-        deps: ["debugLevel"],
-        useFactory: (level: LogLevel) => {
-          let logger = new LogService();
-          logger.minimumLevel = level;
-          return logger;
-      } 
-    }],
+  providers: [DiscountService, SimpleDataSource, Model, LogService,
+
+      { provide: VALUE_SERVICE, useValue: "Apples" }],
   bootstrap: [ProductComponent]
 })
 export class AppModule { }
