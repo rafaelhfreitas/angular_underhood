@@ -3,11 +3,13 @@ import { Product } from "./product.model";
 import { Model } from "./repository.model";
 // import { Subject } from "rxjs";
 import { DiscountService } from "./discount.service";
+import { LogService } from "./log.service";
 
 
 @Component({
     selector: "paProductTable",
-    templateUrl: "productTable.component.html"
+    templateUrl: "productTable.component.html",
+    providers: [LogService]
 })
 export class ProductTableComponent {
 
