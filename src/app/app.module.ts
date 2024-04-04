@@ -65,11 +65,9 @@ registerLocaleData(localeFr);
     BrowserAnimationsModule,
     FormsModule
   ],
-  // providers: [{provide: LOCALE_ID, useValue: "fr-FR"}],
   providers: [DiscountService, SimpleDataSource, Model, LogService,
-
       { provide: VALUE_SERVICE, useValue: "Apples" }],
-  bootstrap: [ProductComponent]
+  bootstrap: [ProductTableComponent,ProductFormComponent ]
 })
 export class AppModule { }
 
