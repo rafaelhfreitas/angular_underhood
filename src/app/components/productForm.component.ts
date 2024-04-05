@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, ViewEncapsulation , Inject, SkipSelf} from "@angular/core";
-import { Product } from "./model/product.model";
-import { Model } from "./model/repository.model";
-import { VALUE_SERVICE } from "./common/valueDisplay.directive";
+import { Product } from "../model/product.model";
+import { Model } from "../model/repository.model";
+import { VALUE_SERVICE } from "../common/valueDisplay.directive";
 
 
 @Component({

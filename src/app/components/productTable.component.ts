@@ -1,9 +1,9 @@
 import { Component, Input, QueryList, ViewChildren } from "@angular/core";
-import { Product } from "./model/product.model";
-import { Model } from "./model/repository.model";
+import { Product } from "../model/product.model";
+import { Model } from "../model/repository.model";
 // import { Subject } from "rxjs";
-import { DiscountService } from "./common/discount.service";
-import { LogService } from "./common/log.service";
+import { DiscountService } from "../common/discount.service";
+import { LogService } from "../common/log.service";
 
 
 @Component({
